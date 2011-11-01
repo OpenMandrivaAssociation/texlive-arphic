@@ -21,29 +21,23 @@ company that which created the fonts (and put them under a GPL-
 like licence).
 
 %pre
+    %_texmf_updmap_pre
     %_texmf_mktexlsr_pre
 
 %post
-sed -i	-e 's/^#! \(Map bkaiu.map\)/\1/'	\
-	-e 's/^#! \(Map bsmiu.map\)/\1/'	\
-	-e 's/^#! \(Map gbsnu.map\)/\1/'	\
-	-e 's/^#! \(Map gkaiu.map\)/\1/'	\
-	%{_texmfdir}/web2c/updmap.cfg
+    %_texmf_updmap_post
     %_texmf_mktexlsr_post
 
 %preun
-    %_texmf_mktexlsr_preun
+    if [ $1 -eq 0 ]; then
+	%_texmf_updmap_pre
+	%_texmf_mktexlsr_pre
+    fi
 
 %postun
     if [ $1 -eq 0 ]; then
-	if [ -f %{_texmfdir}/web2c/updmap.cfg ]; then
-	    sed -i  -e 's/^\(Map bkaiu.map\)/#! \1/'	\
-		    -e 's/^\(Map bsmiu.map\)/#! \1/'	\
-		    -e 's/^\(Map gbsnu.map\)/#! \1/'	\
-		    -e 's/^\(Map gkaiu.map\)/#! \1/'	\
-		%{_texmfdir}/web2c/updmap.cfg
-	fi
-	%_texmf_mltexlsr_post
+	%_texmf_updmap_post
+	%_texmf_mktexlsr_post
     fi
 
 #-----------------------------------------------------------------------
@@ -1608,6 +1602,7 @@ sed -i	-e 's/^#! \(Map bkaiu.map\)/\1/'	\
 %{_texmfdistdir}/fonts/vf/arphic/gkaimp/gkaimp30.vf
 %{_texmfdistdir}/fonts/vf/arphic/gkaimp/gkaimp31.vf
 %{_texmfdistdir}/fonts/vf/arphic/gkaimp/gkaimp32.vf
+%_texmf_updmap_d/arphic
 %doc %{_texmfdistdir}/doc/fonts/arphic/arphic-sampler.pdf
 %doc %{_texmfdistdir}/doc/fonts/arphic/arphic-sampler.tex
 %doc %{_texmfdistdir}/doc/fonts/arphic/bkaiu/README
@@ -1624,3 +1619,10 @@ sed -i	-e 's/^#! \(Map bkaiu.map\)/\1/'	\
 %install
 mkdir -p %{buildroot}%{_texmfdistdir}
 cp -fpar dvips fonts doc %{buildroot}%{_texmfdistdir}
+mkdir -p %{buildroot}%{_texmf_updmap_d}
+cat > %{buildroot}%{_texmf_updmap_d}/arphic <<EOF
+Map bkaiu.map
+Map bsmiu.map
+Map gbsnu.map
+Map gkaiu.map
+EOF
