@@ -1,3 +1,9 @@
+# revision 15878
+# category Package
+# catalog-ctan /fonts/arphic
+# catalog-date 2007-05-25 18:39:01 +0200
+# catalog-license other-free
+# catalog-version undef
 Name:		texlive-arphic
 Version:	20070525
 Release:	1
@@ -1609,6 +1615,7 @@ like licence).
 %doc %{_texmfdistdir}/doc/fonts/arphic/bsmiu/README
 %doc %{_texmfdistdir}/doc/fonts/arphic/gbsnu/README
 %doc %{_texmfdistdir}/doc/fonts/arphic/gkaiu/README
+%doc %{_tlpkgobjdir}/*.tlpobj
 
 #-----------------------------------------------------------------------
 %prep
@@ -1619,6 +1626,8 @@ like licence).
 %install
 mkdir -p %{buildroot}%{_texmfdistdir}
 cp -fpar dvips fonts doc %{buildroot}%{_texmfdistdir}
+mkdir -p %{buildroot}%{_tlpkgobjdir}
+cp -fpa tlpkg/tlpobj/*.tlpobj %{buildroot}%{_tlpkgobjdir}
 mkdir -p %{buildroot}%{_texmf_updmap_d}
 cat > %{buildroot}%{_texmf_updmap_d}/arphic <<EOF
 Map bkaiu.map
