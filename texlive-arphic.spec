@@ -1619,3 +1619,18 @@ Map bsmiu.map
 Map gbsnu.map
 Map gkaiu.map
 EOF
+
+
+%changelog
+* Tue Jan 03 2012 Paulo Andrade <pcpa@mandriva.com.br> 20070525-2
++ Revision: 749347
+- Rebuild to reduce used resources
+
+* Sat Nov 05 2011 Paulo Andrade <pcpa@mandriva.com.br> 20070525-1
++ Revision: 717854
+- texlive-arphic
+- texlive-arphic
+- texlive-arphic
+- texlive-arphic
+- texlive-arphic
+
