@@ -5,8 +5,8 @@
 # catalog-license other-free
 # catalog-version undef
 Name:		texlive-arphic
-Version:	20070525
-Release:	10
+Version:	20170414
+Release:	1
 Summary:	Arphic (Chinese) font packages
 Group:		Publishing
 URL:		http://www.ctan.org/tex-archive/fonts/arphic
