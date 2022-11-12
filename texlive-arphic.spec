@@ -1,18 +1,12 @@
-# revision 15878
-# category Package
-# catalog-ctan /fonts/arphic
-# catalog-date 2007-05-25 18:39:01 +0200
-# catalog-license other-free
-# catalog-version undef
 Name:		texlive-arphic
-Version:	20190228
+Version:	15878
 Release:	1
 Summary:	Arphic (Chinese) font packages
 Group:		Publishing
 URL:		http://www.ctan.org/tex-archive/fonts/arphic
 License:	OTHER-FREE
-Source0:	http://mirrors.ctan.org/systems/texlive/tlnet/archive/arphic.tar.xz
-Source1:	http://mirrors.ctan.org/systems/texlive/tlnet/archive/arphic.doc.tar.xz
+Source0:	http://mirrors.ctan.org/systems/texlive/tlnet/archive/arphic.r15878.tar.xz
+Source1:	http://mirrors.ctan.org/systems/texlive/tlnet/archive/arphic.doc.r15878.tar.xz
 BuildArch:	noarch
 BuildRequires:	texlive-tlpkg
 Requires(pre):	texlive-tlpkg
@@ -26,12 +20,12 @@ company that which created the fonts (and put them under a GPL-
 like licence).
 
 %post
-    %{_sbindir}/texlive.post
+%{_sbindir}/texlive.post
 
 %postun
-    if [ $1 -eq 0 ]; then
+if [ $1 -eq 0 ]; then
 	%{_sbindir}/texlive.post
-    fi
+fi
 
 #-----------------------------------------------------------------------
 %files
@@ -1605,7 +1599,7 @@ like licence).
 
 #-----------------------------------------------------------------------
 %prep
-%setup -c -a0 -a1
+%autosetup -p1 -c -a1
 
 %build
 
@@ -1619,18 +1613,3 @@ Map bsmiu.map
 Map gbsnu.map
 Map gkaiu.map
 EOF
-
-
-%changelog
-* Tue Jan 03 2012 Paulo Andrade <pcpa@mandriva.com.br> 20070525-2
-+ Revision: 749347
-- Rebuild to reduce used resources
-
-* Sat Nov 05 2011 Paulo Andrade <pcpa@mandriva.com.br> 20070525-1
-+ Revision: 717854
-- texlive-arphic
-- texlive-arphic
-- texlive-arphic
-- texlive-arphic
-- texlive-arphic
-
