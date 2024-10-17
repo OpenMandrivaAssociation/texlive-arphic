@@ -3,7 +3,7 @@ Version:	15878
 Release:	2
 Summary:	Arphic (Chinese) font packages
 Group:		Publishing
-URL:		http://www.ctan.org/tex-archive/fonts/arphic
+URL:		https://www.ctan.org/tex-archive/fonts/arphic
 License:	OTHER-FREE
 Source0:	http://mirrors.ctan.org/systems/texlive/tlnet/archive/arphic.r%{version}.tar.xz
 Source1:	http://mirrors.ctan.org/systems/texlive/tlnet/archive/arphic.doc.r%{version}.tar.xz
